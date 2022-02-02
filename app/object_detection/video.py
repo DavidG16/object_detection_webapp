@@ -1,8 +1,5 @@
 import cv2
 from imageai import Detection
-import os
-from pathlib import Path
-
 
 MODEL_PATH = f"./model/yolo.h5"
 print(MODEL_PATH)

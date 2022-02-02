@@ -13,5 +13,11 @@ else
 fi
 source ./venv/bin/activate
 
+#
+if [ $1 = "prod" ]
+then
+  gunicorn --worker-class gthread --workers 1 --bind 0.0.0.0:5000 app.__main__:daemon_app  --timeout 1000
+else
+  python -m app
+fi
 
-python -m app
