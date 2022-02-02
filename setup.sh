@@ -24,6 +24,12 @@ else
 fi    
 
 source venv/bin/activate
+#install brew
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#brew install openblas
+#brew install lapack
+
+# pip
 pip install --upgrade pip
 pip install -r requirements.txt
 
