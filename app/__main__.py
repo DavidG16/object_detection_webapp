@@ -9,12 +9,9 @@ def create_app():
     return app
 
 
-def _main():
-    daemon_app = create_app()
-    daemon_app.run(debug=True)
-
 daemon_app = create_app()
 
 if __name__ == "__main__":
-    _main()
+    daemon_app = create_app()
+    daemon_app.run(debug=True)
 
