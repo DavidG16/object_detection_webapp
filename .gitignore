@@ -25,4 +25,5 @@ htmlcov/
 .coverage.*
 *,cover
 yolo.h5
+new_key.cer
 .idea
