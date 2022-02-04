@@ -2,9 +2,26 @@
 
 <div class="container text-center" id="main-container">
     <div>
-         <img src="{{ url_for('object_detection_blueprint.activate_camera') }}" width="100%">
+
+        <video autoplay="true" id="videoElement"> </video>
     </div>
 
 
 </div>
+
+    <script>
+
+    var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+
+    </script>
 {% endblock %}
