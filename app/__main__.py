@@ -9,7 +9,7 @@ def create_app():
     return app
 
 
-daemon_app = create_app()
+#daemon_app = create_app()
 
 if __name__ == "__main__":
     daemon_app = create_app()
