@@ -1,0 +1,3 @@
+sudo systemctl daemon-reload
+sudo systemctl start object_detection_webapp
+sudo systemctl enable object_detection_webapp
