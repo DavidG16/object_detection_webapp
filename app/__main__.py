@@ -23,6 +23,7 @@ daemon_app = create_app()
 @socketio.on('image')
 def image(data_image):
     sbuf = StringIO()
+    print(sbuf)
     sbuf.write(data_image)
 
     # decode and convert into image
@@ -35,8 +36,9 @@ def image(data_image):
     # Process the image frame
     frame = imutils.resize(frame, width=700)
     frame = cv2.flip(frame, 1)
-    frame, preds = get_video_preds(frame)
+    #frame, preds = get_video_preds(frame)
     imgencode = cv2.imencode('.jpg', frame)[1]
+    print(imgencode)
 
     # base64 encode
     stringData = base64.b64encode(imgencode).decode('utf-8')
@@ -48,5 +50,5 @@ def image(data_image):
 
 
 if __name__ == "__main__":
-    daemon_app.run()
+    daemon_app.run( port=5000)
 
