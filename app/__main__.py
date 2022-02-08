@@ -50,5 +50,5 @@ def image(data_image):
 
 
 if __name__ == "__main__":
-    daemon_app.run( port=5000)
+    daemon_app.run( port=8000)
 
