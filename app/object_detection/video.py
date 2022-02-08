@@ -10,7 +10,7 @@ import struct
 MODEL_PATH = f"./model/yolo.h5"
 print(MODEL_PATH)
 
-cam = cv2.VideoCapture(0)
+# cam = cv2.VideoCapture(0)
 yolo = Detection.ObjectDetection()
 yolo.setModelTypeAsYOLOv3()
 yolo.setModelPath(MODEL_PATH)
@@ -27,17 +27,17 @@ def get_video_preds(frame):
     return frame, preds
 
 
-def gen_frames():
-    pass
-    while True:
-        success, frame = cam.read()
-        if not success:
-            break
-        else:
-            frame, preds = get_video_preds(frame)
-            ret, buffer = cv2.imencode('.jpg', frame)
-            frame = buffer.tobytes()
-            yield (b'--frame\r\n 'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+# def gen_frames():
+#     pass
+#     while True:
+#         success, frame = cam.read()
+#         if not success:
+#             break
+#         else:
+#             frame, preds = get_video_preds(frame)
+#             ret, buffer = cv2.imencode('.jpg', frame)
+#             frame = buffer.tobytes()
+#             yield (b'--frame\r\n 'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
 
