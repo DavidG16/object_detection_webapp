@@ -3,8 +3,11 @@
 <div class="container text-center" id="main-container">
     <div>
 
+        <!--uncomment if you want to use getUserMedia to activate webcam -->
+{#        <video autoplay="true" id="videoElement"> </video>#}
 
-        <video autoplay="true" id="videoElement"> </video>
+         <!-- comment out if you want to use getUserMedia to activate webcam -->
+         <img src="{{ url_for('object_detection_blueprint.activate_camera') }}" width="100%">
     </div>
 
 
@@ -12,16 +15,21 @@
 
     <script>
 
-    var video = document.querySelector("#videoElement");
+ /*  uncomment if you want to use getUserMedia to activate webcam  */
 
-if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
+    {#let video = document.querySelector("#videoElement");#}
+    {##}
+    {#if (navigator.mediaDevices.getUserMedia) {#}
+    {#  navigator.mediaDevices.getUserMedia({ video: true })#}
+    {#    .then(function (stream) {#}
+    {#      video.srcObject = stream;#}
+    {##}
+    {#    })#}
+    {#    .catch(function (err0r) {#}
+    {#      console.log("Something went wrong!");#}
+    {#    });#}
+
+
 }
 
     </script>
