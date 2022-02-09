@@ -16,7 +16,7 @@ source ./venv/bin/activate
 #
 if [ $1 = "prod" ]
 then
-  gunicorn --worker-class gthread --workers 1 --bind 0.0.0.0:$2 app.__main__:daemon_app  --timeout 1000
+  gunicorn --worker-class eventlet --workers 1 --bind 127.0.0.1:$2 app.__main__:daemon_app  --timeout 1000 --reload
 else
   python -m app
 fi

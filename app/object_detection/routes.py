@@ -13,3 +13,5 @@ def index():
 # @object_detection_blueprint.route("/camera", methods=["GET", "POST"])
 # def activate_camera():
 #     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+

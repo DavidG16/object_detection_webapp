@@ -1,6 +1,12 @@
 from flask import Flask
 from flask_socketio import SocketIO, emit
-
+from io import StringIO
+import io
+import base64
+from PIL import Image
+import cv2
+import numpy as np
+import imutils
 
 from app.object_detection.video import get_video_preds
 
@@ -23,8 +29,8 @@ daemon_app = create_app()
 @socketio.on('image')
 def image(data_image):
     sbuf = StringIO()
-    print(sbuf)
     sbuf.write(data_image)
+    print(sbuf)
 
     # decode and convert into image
     b = io.BytesIO(base64.b64decode(data_image))
@@ -33,12 +39,11 @@ def image(data_image):
     ## converting RGB to BGR, as opencv standards
     frame = cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
 
-    # Process the image frame
-    frame = imutils.resize(frame, width=700)
-    frame = cv2.flip(frame, 1)
-    #frame, preds = get_video_preds(frame)
+    # get predictions
+    frame, preds = get_video_preds(frame)
+    print(preds)
     imgencode = cv2.imencode('.jpg', frame)[1]
-    print(imgencode)
+
 
     # base64 encode
     stringData = base64.b64encode(imgencode).decode('utf-8')
