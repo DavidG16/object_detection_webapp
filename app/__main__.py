@@ -1,8 +1,6 @@
 from flask import Flask
 from flask_socketio import SocketIO
 
-from app.object_detection.video import get_video_preds
-
 socketio = SocketIO()
 
 

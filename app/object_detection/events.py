@@ -8,6 +8,7 @@ import numpy as np
 
 
 from ..__main__ import socketio
+from app.object_detection.video import get_video_preds
 
 
 @socketio.on('image')
