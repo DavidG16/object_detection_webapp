@@ -5,10 +5,11 @@ import base64
 from PIL import Image
 import cv2
 import numpy as np
+from app.object_detection.video import get_video_preds
 
 
 from ..__main__ import socketio
-from app.object_detection.video import get_video_preds
+
 
 
 @socketio.on('image')
